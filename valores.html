@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valores Éticos y sus Conceptualizaciones</title>
+
+    <!-- ============================================ -->
+    <!-- CSS EMBEBIDO                                  -->
+    <!-- ============================================ -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        /* ---------- ENCABEZADO ---------- */
+        header {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        #buscador {
+            width: 90%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #buscador:focus {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ---------- CONTENEDOR PRINCIPAL ---------- */
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+        }
+
+        /* ---------- SECCIÓN GENÉRICA ---------- */
+        .seccion {
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .seccion h2 {
+            font-size: 1.8rem;
+            color: #4a3f8f;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .seccion p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* ---------- TIPOS DE VALORES ---------- */
+        .tipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tipo-card {
+            background: #f4f1ff;
+            border-radius: 12px;
+            padding: 1.2rem;
+            border-left: 5px solid #764ba2;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tipo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(118, 75, 162, 0.2);
+        }
+
+        .tipo-card h3 {
+            color: #4a3f8f;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tipo-card p {
+            font-size: 0.92rem;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* ---------- SECCIÓN DE VIDEO ---------- */
+        .seccion-video {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .seccion-video h2 {
+            font-size: 1.8rem;
+            color: #4a3f8f;
+            margin-bottom: 1rem;
+        }
+
+        .video-instruccion {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            background: #f4f1ff;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .video-instruccion code {
+            background: #2c3e50;
+            color: #6ee7b7;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .contenedor-video {
+            position: relative;
+            width: 100%;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contenedor-video video {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        /* ---------- GRID DE VALORES ---------- */
+        .grid-valores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tarjeta-valor {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border-left: 6px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tarjeta-valor:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .tarjeta-valor .icono {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .tarjeta-valor h2 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.7rem;
+        }
+
+        .tarjeta-valor .concepto {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-top 0.4s ease;
+            margin-top: 0;
+        }
+
+        .tarjeta-valor.activa .concepto {
+            max-height: 600px;
+            margin-top: 0.5rem;
+        }
+
+        .tarjeta-valor .ejemplos {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.8rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .tarjeta-valor.activa .ejemplos {
+            max-height: 400px;
+        }
+
+        .tarjeta-valor .ejemplos li {
+            font-size: 0.9rem;
+            color: #333;
+            padding: 6px 0 6px 24px;
+            position: relative;
+            line-height: 1.4;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .tarjeta-valor .ejemplos li:last-child {
+            border-bottom: none;
+        }
+
+        .tarjeta-valor .ejemplos li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .tarjeta-valor .pista {
+            font-size: 0.8rem;
+            color: #999;
+            font-style: italic;
+            margin-top: 0.7rem;
+            display: block;
+        }
+
+        .tarjeta-valor.activa .pista {
+            display: none;
+        }
+
+        /* ---------- MENSAJE VACÍO ---------- */
+        .mensaje-vacio {
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ---------- PIE DE PÁGINA ---------- */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: white;
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .subtitulo { font-size: 0.95rem; }
+            .seccion h2, .seccion-video h2 { font-size: 1.4rem; }
+            .seccion, .seccion-video { padding: 1.2rem; }
+        }
+        header h1 {}
+        /* ---------- CONTENEDOR DEL HEADER CON IMAGEN ---------- */
+.header-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+}
+
+.imagen-titulo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.imagen-titulo:hover {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.texto-header {
+    text-align: left;
+}
+
+.texto-header h1 {
+    margin-bottom: 0.3rem;
+}
+
+/* En pantallas pequeñas, centrar todo */
+@media (max-width: 600px) {
+    .header-contenido {
+        flex-direction: column;
+    }
+    .texto-header {
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+    <div class="header-contenido">
+        <img src="RD.jpg" class="imagen-titulo">
+        <div class="texto-header">
+            <h1>🌟 Valores Éticos</h1>
+            <p class="subtitulo">Conoce los valores más comunes, sus tipos y ejemplos</p>
+        </div>
+    </div>
+    <input 
+        type="text" 
+        id="buscador" 
+        placeholder="🔍 Buscar un valor..."
+        autocomplete="off"
+    >
+</header>
+
+    <main>
+        <!-- ============================================ -->
+        <!-- SECCIÓN 1: CONCEPTO DE VALORES                -->
+        <!-- ============================================ -->
+        <section class="seccion">
+            <h2>📖 ¿Qué son los Valores?</h2>
+            <p>
+                Los <strong>valores</strong> son principios, cualidades o normas que una persona o 
+                una sociedad considera importantes y deseables. Guían el comportamiento, 
+                orientan la toma de decisiones y definen lo que se considera correcto, bueno 
+                o justo. Los <strong>valores éticos</strong>, en particular, son aquellos que regulan 
+                la conducta humana en relación con el bien y el mal, con uno mismo y con los 
+                demás, y son fundamentales para una convivencia armónica y respetuosa. 
+                Se adquieren a través de la educación, la familia, la cultura y la experiencia, 
+                y se manifiestan en la manera en que actuamos frente a distintas situaciones 
+                de la vida cotidiana.
+            </p>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN 2: TIPOS DE VALORES                   -->
+        <!-- ============================================ -->
+        <section class="seccion">
+            <h2>🗂️ Tipos de Valores</h2>
+            <p>
+                Los valores pueden clasificarse según el ámbito de la vida en el que se aplican. 
+                A continuación, los tipos más comunes:
+            </p>
+            <div class="tipos-grid">
+                <div class="tipo-card">
+                    <h3>👤 Valores Personales</h3>
+                    <p>Guían la vida íntima de cada persona y le permiten construir su identidad y proyecto de vida. Ejemplo: superación, autoestima, disciplina.</p>
+                </div>
+                <div class="tipo-card">
+                    <h3>👥 Valores Sociales</h3>
+                    <p>Regulan la convivencia dentro de una comunidad y permiten relaciones armónicas entre sus miembros. Ejemplo: solidaridad, cooperación, tolerancia.</p>
+                </div>
+                <div class="tipo-card">
+                    <h3>⚖️ Valores Morales</h3>
+                    <p>Se relacionan con la distinción entre el bien y el mal, y con la conciencia individual. Ejemplo: honestidad, justicia, integridad.</p>
+                </div>
+                <div class="tipo-card">
+                    <h3>🏠 Valores Familiares</h3>
+                    <p>Se transmiten en el hogar y son la base de la formación personal. Ejemplo: respeto, amor, lealtad, unión.</p>
+                </div>
+                <div class="tipo-card">
+                    <h3>🌎 Valores Culturales</h3>
+                    <p>Son propios de cada sociedad y reflejan su historia, tradiciones e identidad. Ejemplo: identidad, patrimonio, respeto por la diversidad.</p>
+                </div>
+                <div class="tipo-card">
+                    <h3>✨ Valores Espirituales</h3>
+                    <p>Se relacionan con la trascendencia, la fe y el sentido de la vida. Ejemplo: fe, esperanza, compasión, gratitud.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN 3: VIDEO                              -->
+        <!-- ============================================ -->
+        <section class="seccion-video">
+            <h2>🎬 Video sobre los Valores Éticos</h2>
+            <div class="contenedor-video">
+                <video controls preload="metadata">
+                    <source src="ejemplovalores.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN 4: TARJETAS DE VALORES                -->
+        <!-- ============================================ -->
+        <section class="seccion" style="background: transparent; box-shadow: none; padding: 0;">
+            <h2 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                💫 Valores Éticos y sus Ejemplos
+            </h2>
+        </section>
+
+        <div id="contenedor-valores" class="grid-valores"></div>
+        <p id="mensaje-vacio" class="mensaje-vacio" style="display: none;">
+            No se encontraron valores que coincidan con tu búsqueda.
+        </p>
+    </main>
+
+    <footer>
+        <p>Elaborado por: Pablo Escobar / 3ro BTDS</p>
+        <p>📚 Educación en Valores | Página informativa</p>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT EMBEBIDO                           -->
+    <!-- ============================================ -->
+    <script>
+        // ============================================================
+        // 1. ARRAY CON VALORES, CONCEPTOS Y EJEMPLOS
+        // ============================================================
+        const valoresEticos = [
+            {
+                icono: "🤝",
+                nombre: "Honestidad",
+                concepto: "Cualidad de actuar y expresarse con la verdad, siendo coherente entre lo que se piensa, se dice y se hace. Implica transparencia, sinceridad y rechazo a la mentira o el engaño.",
+                ejemplos: [
+                    "Decir la verdad aunque sea difícil.",
+                    "Devolver el cambio sobrante al comprar.",
+                    "Reconocer los errores propios."
+                ]
+            },
+            {
+                icono: "🙏",
+                nombre: "Respeto",
+                concepto: "Reconocimiento del valor y los derechos de las demás personas, así como de uno mismo. Implica tratar a los demás con consideración, sin discriminación ni violencia, aceptando sus diferencias.",
+                ejemplos: [
+                    "Escuchar con atención a los demás.",
+                    "Respetar opiniones diferentes a las propias.",
+                    "Cuidar los espacios y bienes públicos."
+                ]
+            },
+            {
+                icono: "⚖️",
+                nombre: "Justicia",
+                concepto: "Principio que busca dar a cada persona lo que le corresponde según sus méritos, necesidades y derechos. Implica equidad, imparcialidad y respeto a las normas.",
+                ejemplos: [
+                    "Tratar a todos por igual sin favoritismos.",
+                    "Asumir las consecuencias de nuestros actos.",
+                    "Defender a quien es tratado injustamente."
+                ]
+            },
+            {
+                icono: "💪",
+                nombre: "Responsabilidad",
+                concepto: "Capacidad de asumir las consecuencias de los propios actos y cumplir con los compromisos adquiridos. Supone madurez, compromiso y conciencia del impacto de nuestras decisiones.",
+                ejemplos: [
+                    "Cumplir con las tareas escolares o laborales.",
+                    "Llegar puntual a las citas y compromisos.",
+                    "Cuidar el medio ambiente con acciones diarias."
+                ]
+            },
+            {
+                icono: "❤️",
+                nombre: "Solidaridad",
+                concepto: "Actitud de apoyo y colaboración hacia quienes se encuentran en situación de necesidad o vulnerabilidad. Implica empatía, generosidad y compromiso con el bienestar colectivo.",
+                ejemplos: [
+                    "Ayudar a un compañero en dificultades.",
+                    "Donar ropa, alimentos o útiles escolares.",
+                    "Participar en campañas o voluntariados."
+                ]
+            },
+            {
+                icono: "🫂",
+                nombre: "Empatía",
+                concepto: "Capacidad de comprender y compartir los sentimientos y perspectivas de otra persona. Permite ponerse en el lugar del otro y responder con sensibilidad ante su situación.",
+                ejemplos: [
+                    "Consolar a un amigo que está triste.",
+                    "Ponerse en el lugar del otro antes de juzgar.",
+                    "Escuchar sin interrumpir ni criticar."
+                ]
+            },
+            {
+                icono: "🎯",
+                nombre: "Integridad",
+                concepto: "Coherencia entre los principios que se profesan y las acciones que se realizan. Una persona íntegra actúa conforme a sus valores incluso cuando nadie la observa.",
+                ejemplos: [
+                    "Ser coherente entre lo que pienso, digo y hago.",
+                    "No copiar en exámenes ni hacer trampa.",
+                    "Cumplir las promesas hechas a otros."
+                ]
+            },
+            {
+                icono: "🌍",
+                nombre: "Tolerancia",
+                concepto: "Respeto y aceptación de las diferencias de opinión, cultura, religión, orientación sexual o forma de ser de los demás, siempre que no atenten contra los derechos fundamentales.",
+                ejemplos: [
+                    "Aceptar a personas de distintas religiones.",
+                    "Respetar opiniones políticas diferentes.",
+                    "Convivir con personas de otras culturas."
+                ]
+            },
+            {
+                icono: "🔒",
+                nombre: "Lealtad",
+                concepto: "Fidelidad y compromiso hacia las personas, instituciones o causas con las que se tiene un vínculo. Implica confianza mutua, cumplimiento de la palabra dada y apoyo incondicional.",
+                ejemplos: [
+                    "Guardar los secretos de un amigo.",
+                    "Ser fiel a la palabra dada.",
+                    "Apoyar a la familia en momentos difíciles."
+                ]
+            },
+            {
+                icono: "🌱",
+                nombre: "Humildad",
+                concepto: "Reconocimiento honesto de las propias limitaciones y capacidades, sin soberbia ni sentimiento de superioridad. Permite aprender de los demás y aceptar errores.",
+                ejemplos: [
+                    "Reconocer cuando no sabemos algo.",
+                    "Pedir ayuda cuando la necesitamos.",
+                    "No presumir de los logros propios."
+                ]
+            },
+            {
+                icono: "🕊️",
+                nombre: "Paz",
+                concepto: "Estado de tranquilidad y armonía que resulta de la resolución pacífica de conflictos, basada en el diálogo, el respeto y la no violencia.",
+                ejemplos: [
+                    "Resolver conflictos mediante el diálogo.",
+                    "No responder con violencia a las provocaciones.",
+                    "Promover la reconciliación entre amigos."
+                ]
+            },
+            {
+                icono: "📖",
+                nombre: "Sabiduría",
+                concepto: "Capacidad de aplicar el conocimiento y la experiencia de forma prudente para tomar decisiones correctas. Implica reflexión, discernimiento y madurez.",
+                ejemplos: [
+                    "Escuchar los consejos de personas mayores.",
+                    "Reflexionar antes de tomar decisiones.",
+                    "Aprender de los errores cometidos."
+                ]
+            },
+            {
+                icono: "🗣️",
+                nombre: "Libertad",
+                concepto: "Capacidad de actuar y decidir por cuenta propia, asumiendo la responsabilidad de dichas decisiones, sin coacciones externas y respetando los derechos de los demás.",
+                ejemplos: [
+                    "Elegir con responsabilidad nuestras acciones.",
+                    "Expresar opiniones con respeto.",
+                    "Respetar la libertad de los demás."
+                ]
+            },
+            {
+                icono: "🌟",
+                nombre: "Dignidad",
+                concepto: "Valor intrínseco e inalienable de toda persona por el simple hecho de ser humana. Implica el reconocimiento de que nadie debe ser tratado como medio, sino como fin.",
+                ejemplos: [
+                    "No discriminar a ninguna persona.",
+                    "Defender los derechos humanos.",
+                    "Tratar a todos con igualdad y respeto."
+                ]
+            },
+            {
+                icono: "🤲",
+                nombre: "Generosidad",
+                concepto: "Disposición a dar y compartir con los demás sin esperar nada a cambio. Implica desprendimiento, altruismo y gusto por ayudar.",
+                ejemplos: [
+                    "Compartir lo que tenemos con quien lo necesita.",
+                    "Ayudar sin esperar una recompensa.",
+                    "Dedicar tiempo a quien lo necesita."
+                ]
+            },
+            {
+                icono: "🎓",
+                nombre: "Prudencia",
+                concepto: "Capacidad de actuar con cautela, reflexionando antes de tomar decisiones y considerando las posibles consecuencias de los actos.",
+                ejemplos: [
+                    "Pensar antes de hablar o actuar.",
+                    "Evitar situaciones de riesgo innecesario.",
+                    "Administrar bien los recursos disponibles."
+                ]
+            }
+        ];
+
+        // ============================================================
+        // 2. REFERENCIAS A LOS ELEMENTOS DEL HTML
+        // ============================================================
+        const contenedor = document.getElementById("contenedor-valores");
+        const buscador = document.getElementById("buscador");
+        const mensajeVacio = document.getElementById("mensaje-vacio");
+
+        // ============================================================
+        // 3. FUNCIÓN QUE CREA Y MUESTRA LAS TARJETAS
+        // ============================================================
+        function renderizarValores(lista) {
+            contenedor.innerHTML = "";
+
+            if (lista.length === 0) {
+                mensajeVacio.style.display = "block";
+                return;
+            }
+            mensajeVacio.style.display = "none";
+
+            lista.forEach((valor) => {
+                const tarjeta = document.createElement("div");
+                tarjeta.className = "tarjeta-valor";
+
+                // Generar lista de ejemplos
+                const listaEjemplos = valor.ejemplos
+                    .map((ej) => `<li>${ej}</li>`)
+                    .join("");
+
+                tarjeta.innerHTML = `
+                    <span class="icono">${valor.icono}</span>
+                    <h2>${valor.nombre}</h2>
+                    <p class="concepto">${valor.concepto}</p>
+                    <ul class="ejemplos">${listaEjemplos}</ul>
+                    <span class="pista">👉 Clic para ver concepto y ejemplos</span>
+                `;
+
+                tarjeta.addEventListener("click", () => {
+                    tarjeta.classList.toggle("activa");
+                });
+
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        // ============================================================
+        // 4. FILTRO DEL BUSCADOR
+        // ============================================================
+        buscador.addEventListener("input", (e) => {
+            const texto = e.target.value.toLowerCase().trim();
+            const filtrados = valoresEticos.filter(
+                (v) =>
+                    v.nombre.toLowerCase().includes(texto) ||
+                    v.concepto.toLowerCase().includes(texto) ||
+                    v.ejemplos.some((ej) => ej.toLowerCase().includes(texto))
+            );
+            renderizarValores(filtrados);
+        });
+
+        // ============================================================
+        // 5. INICIALIZAR LA PÁGINA
+        // ============================================================
+        renderizarValores(valoresEticos);
+    </script>
+</body>
+</html>

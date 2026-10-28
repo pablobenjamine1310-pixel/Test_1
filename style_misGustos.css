@@ -1,0 +1,92 @@
+/* Estilo general de la pÃ¡gina */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* MenÃº superior */
+nav {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav h2 {
+    margin-top: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #93c5fd;
+}
+
+/* TÃ­tulos */
+h1 {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    text-align: center;
+    padding: 30px 15px;
+    margin: 0;
+}
+
+h2 {
+    color: #2563eb;
+    margin: 25px 20px 10px;
+}
+
+h3 {
+    color: #7c3aed;
+    margin: 20px 25px 5px;
+}
+
+/* PÃ¡rrafos */
+p {
+    margin: 10px 25px 20px;
+}
+
+/* LÃ­neas divisorias */
+hr {
+    border: 0;
+    border-top: 2px solid #cbd5e1;
+    margin: 30px 20px;
+}
+
+/* Pie de pÃ¡gina */
+footer {
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* AdaptaciÃ³n a celulares */
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    p {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
